@@ -1,5 +1,8 @@
-export const Footer = () => (
-    <div className="mt-28 flex bottom-0 h-20  bg-gray-500 ">
-        Amirhossein
+import { Thems } from "./Thems";
+
+export const Footer = ({darkMode,setDarkMode}) => (
+    <div className="flex flex-col gap-8 items-center  mt-28  bottom-0 h-24 ">
+        <p className="">Developed by: Amirhossein</p>
+        <Thems darkMode={darkMode} setDarkMode={setDarkMode}/>
     </div>
 )

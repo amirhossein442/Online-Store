@@ -22,6 +22,7 @@ function App() {
               darkMode ? "bg-white text-black" : "bg-black text-white"
             } shadow-md transition-colors duration-500`}
           >
+            
             <Nav darkMode={darkMode}/>
           </header>
 
@@ -30,8 +31,7 @@ function App() {
             <Route path="/card" element={<Card />}></Route>
           </Routes>
         </Router>
-        <Footer />
-        <Thems darkMode={darkMode} setDarkMode={setDarkMode}/>
+        <Footer darkMode={darkMode} setDarkMode={setDarkMode}/>
       </ShopContextProvider>
       </div>
   );
