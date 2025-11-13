@@ -10,7 +10,7 @@ export const Shop =()=>{
   <React.Fragment>
     <h1 className={`text-3xl font-bold text-center my-8`}>Shop</h1>
 
-    <div className="px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className=" px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {Products.map((p) => {
         const isInCart = cartItems?.some(
           (items) => items.id === p.id && items.count > 0
@@ -18,7 +18,7 @@ export const Shop =()=>{
         return (
           <div
             key={p.id}
-            className="shop bg-white rounded-lg shadow-md overflow-hidden flex flex-col items-center p-4 transition-transform transform hover:scale-105"
+            className=" shop bg-white rounded-lg shadow-md overflow-hidden flex flex-col items-center p-4 transition-transform transform hover:scale-105"
           >
             <img
               className="w-full h-48 object-cover rounded-md mb-4"

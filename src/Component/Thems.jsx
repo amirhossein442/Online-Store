@@ -6,7 +6,7 @@ export const Thems = ({darkMode, setDarkMode}) => (
     onClick={() => setDarkMode(!darkMode)}
   >
     <span
-      className={`w-6 h-6 rounded-full bg-white transition-transform ${
+      className={`w-5 h-5 rounded-full bg-white transition-transform ${
         darkMode ? "translate-x-0" : "translate-x-16"
       }`}
     ></span>

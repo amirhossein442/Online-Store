@@ -5,6 +5,7 @@ import { Card } from "./Pages/Card";
 import { ShopContextProvider } from "./Context/ShopContext";
 import { useState } from "react";
 import { Thems } from "./Component/Thems";
+import { Footer } from "./Component/Footer";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true); 
@@ -12,7 +13,7 @@ function App() {
     <div
       className={`${
         darkMode ? "bg-black text-white" : "bg-white text-black"
-      } min-h-screen transition-colors duration-500`}
+      } transition-colors duration-500`}
     >
       <ShopContextProvider>
         <Router>
@@ -29,8 +30,9 @@ function App() {
             <Route path="/card" element={<Card />}></Route>
           </Routes>
         </Router>
+        <Footer />
+        <Thems darkMode={darkMode} setDarkMode={setDarkMode}/>
       </ShopContextProvider>
-      <Thems darkMode={darkMode} setDarkMode={setDarkMode}/>
       </div>
   );
 }
