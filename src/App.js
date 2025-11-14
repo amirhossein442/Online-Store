@@ -12,8 +12,8 @@ function App() {
   return (
     <div
       className={`${
-        darkMode ? "bg-black text-white" : "bg-white text-black"
-      } transition-colors duration-500`}
+        darkMode ? "bg-black text-white " : "bg-white text-black"
+      }min-h-screen transition-colors duration-500`}
     >
       <ShopContextProvider>
         <Router>
