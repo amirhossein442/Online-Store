@@ -10,10 +10,10 @@ export const Thems = ({darkMode, setDarkMode}) => (
         darkMode ? "translate-x-0" : "translate-x-14"
       }`}
     ></span>
-    <span className="text-xs absolute left-2 bottom-8 text-black dark:text-white">
+    <span className="text-xs absolute left-1 bottom-6 text-black dark:text-white">
       <FiMoon className={`text-lg mb-1 ${darkMode ? "text-white" : "text-black"}`}/>
     </span>
-    <span className="text-xs absolute right-2 bottom-8 text-black dark:text-white">
+    <span className="text-xs absolute right-1 bottom-6 text-black dark:text-white">
       <FiSun className={`text-lg mb-1 ${darkMode ? "text-white" : "text-black"}`}/>
     </span>
   </div>

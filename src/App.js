@@ -4,11 +4,11 @@ import { Shop } from "./Pages/Shop";
 import { Card } from "./Pages/Card";
 import { ShopContextProvider } from "./Context/ShopContext";
 import { useState } from "react";
-import { Thems } from "./Component/Thems";
 import { Footer } from "./Component/Footer";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true); 
+  const [darkMode, setDarkMode] = useState(false); 
+
   return (
     <div
       className={`${

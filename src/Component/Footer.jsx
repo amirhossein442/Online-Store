@@ -1,7 +1,7 @@
 import { Thems } from "./Thems";
 
 export const Footer = ({darkMode,setDarkMode}) => (
-    <div className="flex flex-col gap-8 items-center  mt-28  bottom-0 h-24 ">
+    <div className="flex flex-col gap-8 items-center  mt-24  bottom-0 h-24 ">
         <p className="">Developed by: Amirhossein</p>
         <Thems darkMode={darkMode} setDarkMode={setDarkMode}/>
     </div>
