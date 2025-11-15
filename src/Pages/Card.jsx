@@ -22,13 +22,13 @@ export const Card = () => {
       <h1 className="text-3xl font-bold text-center my-8">Your Cart</h1>
       <div className="flex items-center">
         {totalPrice > 0 && (
-          <h2 className="text-xl border border-white/20 shadow-lg p-4 rounded-xl ">
+          <h2 className="ml-5 text-xl border border-white/20 shadow-lg p-4 rounded-xl ">
             Total Price: {totalPrice}$
           </h2>
         )}
         {cartItems.some(item => item.count > 0) && (
           <button
-            className="ml-5  px-3 h-9 border border-transparent hover:border-gray-500 rounded-md  transition-colors duration-300"
+            className="ml-5 font-bold  px-3 h-9 border border-transparent hover:border-gray-500 rounded-md  transition-colors duration-300"
             onClick={resetCart}
           >
             Reset
