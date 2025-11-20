@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
-import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
 import { useContext } from "react";
 import { FormControlContext } from "../Context/FormControl";
+
 
 export const LoginPage = ({ darkMode }) => {
   const { register, handleSubmit } = useForm();

@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { supabase } from "../supabaseClient";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const FormControlContext = createContext();
 
 export const FormControlPovider = ({ children }) => {
+  const [isLogin, setIsLogin] = useState(false)
   const navigate = useNavigate();
 
   const handelLogin = async (data) => {
@@ -20,9 +21,9 @@ export const FormControlPovider = ({ children }) => {
     } else {
       console.log("Login success:", authData.user);
       navigate("/shop");
+      setIsLogin(true)
     }
   };
-
   const handleSignup = async (data) => {
     const { email, password } = data;
 
@@ -41,7 +42,7 @@ export const FormControlPovider = ({ children }) => {
   };
 
   return (
-    <FormControlContext.Provider value={{ handelLogin, handleSignup }}>
+    <FormControlContext.Provider value={{ handelLogin, handleSignup , isLogin}}>
       <Toaster />
       {children}
     </FormControlContext.Provider>

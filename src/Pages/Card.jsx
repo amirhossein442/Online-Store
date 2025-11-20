@@ -3,10 +3,11 @@ import { useContext } from "react";
 import { ShopContext } from "../Context/ShopContext";
 import { Products } from "../Component/Products";
 import { ShowCartUi } from "../Component/showUi";
+import { FormControlContext } from "../Context/FormControl";
 
 export const Card = () => {
-  const { cartItems, addToCart, removeFromCart, resetCart } =
-    useContext(ShopContext);
+  const { cartItems, resetCart } = useContext(ShopContext);
+  const { isLogin } = useContext(FormControlContext);
 
   const totalPrice = cartItems.reduce((acc, item) => {
     const product = Products.find((p) => p.id === item.id);
@@ -16,27 +17,30 @@ export const Card = () => {
     }
     return acc;
   }, 0);
-
   return (
-    <div className="">
-      <h1 className="text-3xl font-bold text-center my-8">Your Cart</h1>
-      <div className="flex items-center">
-        {totalPrice > 0 && (
-          <h2 className="ml-5 text-xl border border-white/20 shadow-lg p-4 rounded-xl ">
-            Total Price: {totalPrice}$
-          </h2>
-        )}
-        {cartItems.some(item => item.count > 0) && (
-          <button
-            className="ml-5 font-bold  px-3 h-9 border border-transparent hover:border-gray-500 rounded-md  transition-colors duration-300"
-            onClick={resetCart}
-          >
-            Reset
-          </button>
-        )}
-      </div>
+    <div>
+      {isLogin && (
+        <div>
+          <h1 className="text-3xl font-bold text-center my-8">Your Cart</h1>
+          <div className="flex items-center">
+            {totalPrice > 0 && (
+              <h2 className="ml-5 text-xl border border-white/20 shadow-lg p-4 rounded-xl ">
+                Total Price: {totalPrice}$
+              </h2>
+            )}
+            {cartItems.some((item) => item.count > 0) && (
+              <button
+                className="ml-5 font-bold  px-3 h-9 border border-transparent hover:border-gray-500 rounded-md  transition-colors duration-300"
+                onClick={resetCart}
+              >
+                Reset
+              </button>
+            )}
+          </div>
 
-      <ShowCartUi />
+          <ShowCartUi />
+        </div>
+      )}
     </div>
   );
 };

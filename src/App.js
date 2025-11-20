@@ -9,6 +9,8 @@ import { FormControlPovider } from "./Context/FormControl";
 import { SignInPage } from "./Pages/SignInPage";
 import { LoginPage } from "./Pages/LoginPage";
 
+// I need to save my email, password, and login in local storage.
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
