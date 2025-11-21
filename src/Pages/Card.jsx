@@ -7,7 +7,7 @@ import { FormControlContext } from "../Context/FormControl";
 
 export const Card = () => {
   const { cartItems, resetCart } = useContext(ShopContext);
-  const { isLogin } = useContext(FormControlContext);
+  const { user } = useContext(FormControlContext);
 
   const totalPrice = cartItems.reduce((acc, item) => {
     const product = Products.find((p) => p.id === item.id);
@@ -19,7 +19,7 @@ export const Card = () => {
   }, 0);
   return (
     <div>
-      {isLogin && (
+      {user && (
         <div>
           <h1 className="text-3xl font-bold text-center my-8">Your Cart</h1>
           <div className="flex items-center">

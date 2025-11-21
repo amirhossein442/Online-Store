@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,12 @@ import { useNavigate } from "react-router-dom";
 export const FormControlContext = createContext();
 
 export const FormControlPovider = ({ children }) => {
-  const [isLogin, setIsLogin] = useState(false)
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    localStorage.getItem("user");
+  }, []);
+
   const navigate = useNavigate();
 
   const handelLogin = async (data) => {
@@ -21,7 +26,8 @@ export const FormControlPovider = ({ children }) => {
     } else {
       console.log("Login success:", authData.user);
       navigate("/shop");
-      setIsLogin(true)
+      localStorage.setItem("user", JSON.stringify(data));
+      setUser(data);
     }
   };
   const handleSignup = async (data) => {
@@ -41,8 +47,24 @@ export const FormControlPovider = ({ children }) => {
     }
   };
 
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.log("Logout failed:", error.message);
+      toast.error("Logout failed!");
+    } else {
+      console.log("Logged out successfully.");
+      localStorage.removeItem("user");
+      setUser(null);
+      navigate("/");
+    }
+  };
+
   return (
-    <FormControlContext.Provider value={{ handelLogin, handleSignup , isLogin}}>
+    <FormControlContext.Provider
+      value={{ handelLogin, handleSignup, handleLogout, user }}
+    >
       <Toaster />
       {children}
     </FormControlContext.Provider>

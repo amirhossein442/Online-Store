@@ -1,13 +1,19 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FormControlContext } from "../Context/FormControl";
-
 
 export const LoginPage = ({ darkMode }) => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  const { handelLogin } = useContext(FormControlContext);
+  const { handelLogin, user } = useContext(FormControlContext);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/shop");
+    }
+  }, [user, navigate]);
+
   function Login(data) {
     handelLogin(data);
   }

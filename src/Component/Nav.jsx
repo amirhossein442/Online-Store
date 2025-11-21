@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext} from "react";
 import { ShopContext } from "../Context/ShopContext";
 import { FormControlContext } from "../Context/FormControl";
 
 export const Nav = ({ darkMode }) => {
   const { cartItems } = useContext(ShopContext);
+  const { user } = useContext(FormControlContext);
   const itemCount = cartItems.reduce((total, item) => total + item.count, 0);
-  const { isLogin } = useContext(FormControlContext);
+  console.log(user)
   return (
     <nav
       className={`${
@@ -14,7 +15,7 @@ export const Nav = ({ darkMode }) => {
       } font-bold flex items-center justify-between px-6 py-4 shadow-md`}
     >
       <h2 className="text-xl font-semibold  font-serif">Amirhossein</h2>
-      {isLogin && (
+      {user && (
         <div>
           <div className="flex items-center gap-6 text-sm sm:text-base">
             <Link

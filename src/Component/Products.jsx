@@ -5,25 +5,25 @@ import camera from '../pictureShop/camera.jpg'
 export const Products = [
         {
             id : 1,
-            productName: 'mobile',
+            productName: 'Shoes',
             price: 169,
             productImage: shoes,
         },
         {
             id : 2,
-            productName: 'laptop',
+            productName: 'Laptop',
             price: 1200,
             productImage: laptob,
         },
         {
             id : 3,
-            productName: 'ps5',
+            productName: 'Ps5',
             price: 466,
             productImage: ps5,
         },
         {
             id: 4,
-            productName: 'camera',
+            productName: 'Camera',
             price: 1600,
             productImage: camera
         }
